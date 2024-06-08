@@ -14,7 +14,7 @@ This is a simple financial project to control bills payable
 # Screenshot #
 
 - Postman
- <br>
+
 ![Create Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/create_account.png)
 <br>
 ![Filter Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/filter_account.png)
