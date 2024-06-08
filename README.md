@@ -20,3 +20,5 @@ This is a simple financial project to control bills payable
 ![Filter Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/filter_account.png)
 <br>
 ![FindAll Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/findall_account.png)
+<br>
+![FullPaind Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/fullPaind_account.png)

@@ -1,6 +1,7 @@
 package br.com.financial.controller;
 
 import br.com.financial.dto.StatusAccount;
+import br.com.financial.dto.TotalPayment;
 import br.com.financial.model.Account;
 import br.com.financial.service.AccountService;
 import br.com.financial.util.AccountTypeEnum;
@@ -46,6 +47,20 @@ public class AccountController {
                                                                    @RequestParam String description,
                                                                    @RequestParam String type) {
         return service.filterExpirationAndDescriptionAndType(expirationDate, description, AccountTypeEnum.valueOf(type));
+    }
+
+    @GetMapping("/getFullPaid")
+    @Operation(summary = "Get the amount paid in a period",
+            description = "Get the amount paid in a period",
+            tags = {"Account"})
+    public TotalPayment findByPaymentDate(@RequestParam(name = "paymentDateStart")  @DateTimeFormat(pattern="yyyy-MM-dd")Date paymentDateStart,
+                                          @RequestParam(name = "paymentDateEnd")  @DateTimeFormat(pattern="yyyy-MM-dd")Date paymentDateEnd,
+                                          @RequestParam String type) {
+        var amount = service.findByPaymentDate(paymentDateStart, paymentDateEnd, AccountTypeEnum.valueOf(type));
+        var totalPayment = new TotalPayment();
+        totalPayment.setAmount(amount);
+        return totalPayment;
+
     }
 
     @PostMapping("/")

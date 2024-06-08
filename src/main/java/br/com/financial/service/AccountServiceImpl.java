@@ -46,6 +46,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public Double findByPaymentDate(Date paymentDateStart, Date paymentDateEnd, AccountTypeEnum type) {
+        logger.info("Get the amount paid in a period.");
+        return repository.findByPaymentDate(paymentDateStart, paymentDateEnd, type);
+    }
+
+    @Override
     public Account create(Account account) {
         logger.info("Creating one account.");
         return repository.save(account);

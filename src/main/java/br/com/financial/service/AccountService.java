@@ -18,4 +18,6 @@ public interface AccountService {
     public Account update(Long id, Account account);
     public void delete(Long id);
     public Account updateStatus(Long id, StatusEnum newStatus);
+
+    public Double findByPaymentDate(Date paymentDateStart, Date paymentDateEnd, AccountTypeEnum type);
 }
