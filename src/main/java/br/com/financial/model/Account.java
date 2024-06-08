@@ -1,5 +1,7 @@
-package br.com.financial.domain;
+package br.com.financial.model;
 
+import br.com.financial.util.AccountTypeEnum;
+import br.com.financial.util.StatusEnum;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -7,8 +9,8 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "billing")
-public class Billing implements Serializable {
+@Table(name = "account")
+public class Account implements Serializable {
 
     private static final long serialVersionUID = 1904407144326855519L;
 
@@ -16,19 +18,24 @@ public class Billing implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column( nullable = false )
+    @Column(nullable = false)
     private String description;
 
-    @Column( nullable = false, length = 50)
-    private String situation;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private AccountTypeEnum accountType;
 
-    @Column( nullable = false )
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 50)
+    private StatusEnum status;
+
+    @Column(nullable = false)
     private Date expirationDate;
 
-    @Column( nullable = false )
+    @Column(nullable = false)
     private Date paymentDate;
 
-    @Column( nullable = false )
+    @Column(nullable = false)
     private double paymentValue;
 
     public Long getId() {
@@ -47,12 +54,20 @@ public class Billing implements Serializable {
         this.description = description;
     }
 
-    public String getSituation() {
-        return situation;
+    public AccountTypeEnum getAccountType() {
+        return accountType;
     }
 
-    public void setSituation(String situation) {
-        this.situation = situation;
+    public void setAccountType(AccountTypeEnum accountType) {
+        this.accountType = accountType;
+    }
+
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     public Date getExpirationDate() {
@@ -83,12 +98,12 @@ public class Billing implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Billing billing = (Billing) o;
-        return Double.compare(billing.paymentValue, paymentValue) == 0 && Objects.equals(id, billing.id) && Objects.equals(description, billing.description) && Objects.equals(situation, billing.situation) && Objects.equals(expirationDate, billing.expirationDate) && Objects.equals(paymentDate, billing.paymentDate);
+        Account account = (Account) o;
+        return Double.compare(account.paymentValue, paymentValue) == 0 && Objects.equals(id, account.id) && Objects.equals(description, account.description) && accountType == account.accountType && status == account.status && Objects.equals(expirationDate, account.expirationDate) && Objects.equals(paymentDate, account.paymentDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, situation, expirationDate, paymentDate, paymentValue);
+        return Objects.hash(id, description, accountType, status, expirationDate, paymentDate, paymentValue);
     }
 }

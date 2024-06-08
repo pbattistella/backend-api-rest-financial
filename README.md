@@ -8,3 +8,15 @@ This is a simple financial project to control bills payable
 - Flyway
 - jUnit
 - Docker
+- Swagger
+- Postman
+
+# Screenshot #
+
+- Postman
+ <br>
+![Create Account](https://github.com/pbattistella/backend-api-rest-financial/screenshot/blob/main/create_account.png)
+<br>
+![Filter Account](https://github.com/pbattistella/backend-api-rest-financial/screenshot/blob/main/filter_account.png)
+<br>
+![FindAll Account](https://github.com/pbattistella/backend-api-rest-financial/screenshot/blob/main/findall_account.png)
