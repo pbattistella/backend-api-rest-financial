@@ -10,6 +10,7 @@ This is a simple financial project to control bills payable
 - Docker
 - Swagger
 - Postman
+- JwtToken
 
 # Screenshot #
 
@@ -28,3 +29,7 @@ This is a simple financial project to control bills payable
 ![Postman Import](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/postman_import.png)
 <br>
 ![Data Imported](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/data_imported.png)
+
+# Login for test #
+- username: paulo
+- password: admin2024

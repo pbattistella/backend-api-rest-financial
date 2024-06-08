@@ -1,6 +1,6 @@
 package br.com.financial.dto;
 
-public class TotalPayment {
+public class TotalPaymentDTO {
 
     private Double amount;
 

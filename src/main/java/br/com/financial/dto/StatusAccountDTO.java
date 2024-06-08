@@ -1,6 +1,6 @@
 package br.com.financial.dto;
 
-public class StatusAccount {
+public class StatusAccountDTO {
 
     private String status;
 

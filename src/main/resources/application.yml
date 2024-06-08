@@ -26,4 +26,8 @@ springdoc:
     - /api/**
   swagger-ui:
     use-root-path: true
-
+security:
+  jwt:
+    token:
+      secret-key: 53ccr37
+      expire-length: 3600000
