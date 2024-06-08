@@ -29,6 +29,9 @@ This is a simple financial project to control bills payable
 ![Postman Import](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/postman_import.png)
 <br>
 ![Data Imported](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/data_imported.png)
+<br>
+![JWT TOKEN](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/jwt.png)
+
 
 # Login for test #
 - username: paulo
