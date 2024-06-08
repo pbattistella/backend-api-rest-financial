@@ -31,8 +31,3 @@ This is a simple financial project to control bills payable
 ![Data Imported](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/data_imported.png)
 <br>
 ![JWT TOKEN](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/jwt.png)
-
-
-# Login for test #
-- username: paulo
-- password: admin2024
