@@ -5,6 +5,7 @@ import br.com.financial.dto.TotalPayment;
 import br.com.financial.model.Account;
 import br.com.financial.service.AccountService;
 import br.com.financial.util.AccountTypeEnum;
+import br.com.financial.util.CsvUtility;
 import br.com.financial.util.StatusEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,8 +14,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
@@ -59,8 +62,28 @@ public class AccountController {
         var amount = service.findByPaymentDate(paymentDateStart, paymentDateEnd, AccountTypeEnum.valueOf(type));
         var totalPayment = new TotalPayment();
         totalPayment.setAmount(amount);
-        return totalPayment;
 
+        return totalPayment;
+    }
+
+    @PostMapping("/importCsvFile")
+    @Operation(summary = "Import accounts from file csv", description = "Import accounts from file csv", tags = {"Account"})
+    public ResponseEntity<?> uploadFile(@RequestParam("file")MultipartFile file) {
+        var message = "";
+
+        if (CsvUtility.hasCsvFormat(file)) {
+            try {
+                service.importAccountsCSV(file);
+                message = "The file is uploaded successfully: " + file.getOriginalFilename();
+                return ResponseEntity.status(HttpStatus.OK).body(message);
+            } catch (Exception e) {
+                message = "The file is not upload successfully: " + file.getOriginalFilename();
+                return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(message);
+            }
+        }
+
+        message = "Please upload a csv file.";
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
     }
 
     @PostMapping("/")

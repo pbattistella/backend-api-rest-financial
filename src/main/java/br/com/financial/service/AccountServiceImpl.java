@@ -4,12 +4,15 @@ import br.com.financial.exception.ResourceNotFoundException;
 import br.com.financial.model.Account;
 import br.com.financial.repository.AccountRepository;
 import br.com.financial.util.AccountTypeEnum;
+import br.com.financial.util.CsvUtility;
 import br.com.financial.util.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -49,6 +52,17 @@ public class AccountServiceImpl implements AccountService {
     public Double findByPaymentDate(Date paymentDateStart, Date paymentDateEnd, AccountTypeEnum type) {
         logger.info("Get the amount paid in a period.");
         return repository.findByPaymentDate(paymentDateStart, paymentDateEnd, type);
+    }
+
+    @Override
+    public void importAccountsCSV(MultipartFile file) {
+        try {
+            List<Account> list = CsvUtility.csvToAccountList(file.getInputStream());
+            repository.saveAll(list);
+
+        } catch (IOException ex) {
+            throw new RuntimeException("Data is not store successfully: " + ex.getMessage());
+        }
     }
 
     @Override

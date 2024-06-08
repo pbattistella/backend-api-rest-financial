@@ -106,4 +106,17 @@ public class Account implements Serializable {
     public int hashCode() {
         return Objects.hash(id, description, accountType, status, expirationDate, paymentDate, paymentValue);
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", accountType=" + accountType +
+                ", status=" + status +
+                ", expirationDate=" + expirationDate +
+                ", paymentDate=" + paymentDate +
+                ", paymentValue=" + paymentValue +
+                '}';
+    }
 }
