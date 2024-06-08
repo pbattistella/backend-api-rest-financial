@@ -8,12 +8,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
-import java.util.List;
 
 public interface AccountService {
 
     public Page<Account> findAll(Pageable pageable);
-    public List<Account> filterExpirationAndDescriptionAndType(Date expirationDate, String description, AccountTypeEnum type);
+    public Page<Account> filterExpirationAndDescriptionAndType(Date expirationDate, String description, AccountTypeEnum type, Pageable pageable);
     public Account findById(Long id);
     public void importAccountsCSV(MultipartFile file);
     public Account create(Account account);

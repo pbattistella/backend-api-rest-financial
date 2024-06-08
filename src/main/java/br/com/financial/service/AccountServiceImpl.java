@@ -32,12 +32,12 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<Account> filterExpirationAndDescriptionAndType(Date expirationDate,
+    public Page<Account> filterExpirationAndDescriptionAndType(Date expirationDate,
                                                                String description,
-                                                               AccountTypeEnum type) {
+                                                               AccountTypeEnum type, Pageable pageable) {
         logger.info("Filtering accounts.");
         return repository
-                .findByExpirationDateAndDescriptionContainingAndAccountType(expirationDate, description, type);
+                .findByExpirationDateAndDescriptionContainingAndAccountType(expirationDate, description, type, pageable);
     }
 
     @Override

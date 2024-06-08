@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/account")
@@ -46,10 +45,11 @@ public class AccountController {
     @Operation(summary = "Find the accounts for expiration date and description",
                description = "Find the accounts for expiration date and description",
                tags = {"Account"})
-    public List<Account> findFilterExpirationAndDescriptionAndType(@RequestParam(name = "expiration")  @DateTimeFormat(pattern="yyyy-MM-dd")Date expirationDate,
+    public Page<Account> findFilterExpirationAndDescriptionAndType(@RequestParam(name = "expiration")  @DateTimeFormat(pattern="yyyy-MM-dd")Date expirationDate,
                                                                    @RequestParam String description,
-                                                                   @RequestParam String type) {
-        return service.filterExpirationAndDescriptionAndType(expirationDate, description, AccountTypeEnum.valueOf(type));
+                                                                   @RequestParam String type,
+                                                                   @PageableDefault(sort = {"expirationDate"}) Pageable pageable) {
+        return service.filterExpirationAndDescriptionAndType(expirationDate, description, AccountTypeEnum.valueOf(type), pageable);
     }
 
     @GetMapping("/getFullPaid")
@@ -88,19 +88,19 @@ public class AccountController {
 
     @PostMapping("/")
     @Operation(summary = "Create one account", description = "Create one account", tags = {"Account"})
-    public Account create(@RequestBody Account account) throws Exception{
+    public Account create(@RequestBody Account account) {
         return service.create(account);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update one account", description = "Update one account", tags = {"Account"})
-    public Account update(@PathVariable(value = "id") Long id, @RequestBody Account account) throws Exception {
+    public Account update(@PathVariable(value = "id") Long id, @RequestBody Account account) {
         return service.update(id, account);
     }
 
     @PutMapping("/{id}/status")
     @Operation(summary = "Update status of account", description = "Update status of account", tags = {"Account"})
-    public Account updateStatus(@PathVariable(value = "id") Long id, @RequestBody StatusAccount newStatus) throws Exception {
+    public Account updateStatus(@PathVariable(value = "id") Long id, @RequestBody StatusAccount newStatus) {
         return service.updateStatus(id, StatusEnum.valueOf(newStatus.getStatus()));
     }
 
