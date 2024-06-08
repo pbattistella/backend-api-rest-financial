@@ -22,3 +22,9 @@ This is a simple financial project to control bills payable
 ![FindAll Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/findall_account.png)
 <br>
 ![FullPaind Account](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/fullPaid_account.png)
+<br>
+![CSV FILE](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/csv_file.png)
+<br>
+![Postman Import](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/postman_import.png)
+<br>
+![Data Imported](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/data_imported.png)
