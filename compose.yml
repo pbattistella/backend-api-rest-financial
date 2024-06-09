@@ -9,12 +9,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - 8080:8080
-    depends_on:
-      - postgres
     #sobrescreve as configurações do application.properties
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/financial_db
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=changeme
+      - SPRING_DATASOURCE_PASSWORD=PBattistella2024
       - SPRING_JPA_HIBERNATE_DDL_AUTO=none
 #    restart: unless-stopped
