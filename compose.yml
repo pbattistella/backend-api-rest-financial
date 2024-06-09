@@ -23,7 +23,7 @@ services:
       - "${PGADMIN_PORT:-5050}:80"
     restart: unless-stopped
 
-  backend_app:
+  app:
     container_name: backend_container
     image: 'backend_app:latest'
     build:
@@ -32,7 +32,7 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - postgres14_container
+      - postgres
     #sobrescreve as configurações do application.properties
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres14_container:5432/financial_db
