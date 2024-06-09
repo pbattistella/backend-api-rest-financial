@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: PBattistella2024
+    password: admin2024
     url: jdbc:postgresql://localhost:5432/financial_db
     platform: postgres
     initialization-mode: always
