@@ -5,6 +5,6 @@ COPY pom.xml /home/backend
 RUN mvn -f /home/backend/pom.xml clean package -DskipTests
 
 #Package Stage
-FROM openjdk:17-jre-slim
+FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /home/backend/target/*.jar /usr/local/lib/backend.jar
 CMD ["java", "-jar", "/usr/local/lib/backend.jar"]
