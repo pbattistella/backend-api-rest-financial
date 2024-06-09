@@ -68,7 +68,7 @@ public class AccountController {
 
     @PostMapping("/importCsvFile")
     @Operation(summary = "Import accounts from file csv", description = "Import accounts from file csv", tags = {"Account"})
-    public ResponseEntity<?> uploadFile(@RequestParam("file")MultipartFile file) {
+    public ResponseEntity<?> importCsvFile(@RequestParam("file")MultipartFile file) {
         var message = "";
 
         if (CsvUtility.hasCsvFormat(file)) {

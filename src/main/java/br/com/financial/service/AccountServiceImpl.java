@@ -2,9 +2,9 @@ package br.com.financial.service;
 
 import br.com.financial.exception.ResourceNotFoundException;
 import br.com.financial.model.Account;
+import br.com.financial.util.CsvUtility;
 import br.com.financial.repository.AccountRepository;
 import br.com.financial.util.AccountTypeEnum;
-import br.com.financial.util.CsvUtility;
 import br.com.financial.util.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

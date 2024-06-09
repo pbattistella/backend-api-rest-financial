@@ -11,6 +11,7 @@ This is a simple financial project to control bills payable
 - Swagger
 - Postman
 - JwtToken
+- testContainer (necessário o docker para realizar os testes unitários)
 
 # Screenshot #
 

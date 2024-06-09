@@ -1,7 +1,7 @@
 package br.com.financial.exception.handler;
 
-import br.com.financial.exception.ExceptionResponse;
 import br.com.financial.exception.InvalidJwtAuthenticationException;
+import br.com.financial.exception.ExceptionResponse;
 import br.com.financial.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

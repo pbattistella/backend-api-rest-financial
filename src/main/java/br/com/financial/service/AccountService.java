@@ -1,8 +1,8 @@
 package br.com.financial.service;
 
 import br.com.financial.model.Account;
-import br.com.financial.util.AccountTypeEnum;
 import br.com.financial.util.StatusEnum;
+import br.com.financial.util.AccountTypeEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
