@@ -12,6 +12,7 @@ This is a simple financial project to control bills payable
 - Postman
 - JwtToken
 - testContainer (necessário o docker para realizar os testes unitários)
+- Docker
 
 # Screenshot #
 
@@ -32,3 +33,5 @@ This is a simple financial project to control bills payable
 ![Data Imported](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/data_imported.png)
 <br>
 ![JWT TOKEN](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/jwt.png)
+<br>
+![Docker containers](https://github.com/pbattistella/backend-api-rest-financial/blob/main/screenshot/docker.png)
