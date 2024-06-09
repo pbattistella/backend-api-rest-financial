@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>br.com.financial</groupId>
 	<artifactId>Financial</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.5</version>
 	<name>Financial</name>
 	<description>Project for financial</description>
 	<properties>
