@@ -23,9 +23,9 @@ services:
       - "${PGADMIN_PORT:-5050}:80"
     restart: unless-stopped
 
-  app:
+  backend_app:
     container_name: backend_container
-    image: 'backend_container:latest'
+    image: 'backend_app:latest'
     build:
       context: .
       dockerfile: Dockerfile
