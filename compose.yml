@@ -1,6 +1,28 @@
 version: '1.0'
 
 services:
+  postgres:
+    container_name: postgres14_container
+    image: postgres:14.10-alpine3.19
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin2024}
+      PGDATA: /data/postgres
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin2024}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
   app:
     container_name: backend_container
     image: 'backend_app:latest'
@@ -13,6 +35,6 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres14_container:5432/financial_db
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=PBattistella2024
+      - SPRING_DATASOURCE_PASSWORD=admin2024
       - SPRING_JPA_HIBERNATE_DDL_AUTO=none
 #    restart: unless-stopped
